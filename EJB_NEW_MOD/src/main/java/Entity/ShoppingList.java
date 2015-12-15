@@ -28,8 +28,53 @@ public class ShoppingList {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="User_spending")
-    private MonthlySpending spending;
+    private HistoryOfSpending spending;
 
     @OneToMany(mappedBy="shoplist")
     private List<LineOfShoppingList> lineOfShoppingLists=new ArrayList<LineOfShoppingList>();
+
+    public long getIdList() {
+        return idList;
+    }
+
+    public void setIdList(long idList) {
+        this.idList = idList;
+    }
+
+    public long getSummOfList() {
+        return summOfList;
+    }
+
+    public void setSummOfList(long summOfList) {
+        this.summOfList = summOfList;
+    }
+
+    public LineOfShoppingList getIdLine() {
+        return idLine;
+    }
+
+    public void setIdLine(LineOfShoppingList idLine) {
+        this.idLine = idLine;
+    }
+
+    public Profile getUser() {
+        return user;
+    }
+
+    public void setUser(Profile user) {
+        this.user = user;
+    }
+
+    public HistoryOfSpending getSpending() {
+        return spending;
+    }
+
+    public void setSpending(HistoryOfSpending spending) {
+        this.spending = spending;
+    }
+
+    public List<LineOfShoppingList> getLineOfShoppingLists() {
+        return lineOfShoppingLists;
+    }
+
 }

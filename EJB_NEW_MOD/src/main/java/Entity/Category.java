@@ -20,4 +20,26 @@ public class Category {
 
     @OneToMany(mappedBy="category")
     private List<TradingUNIT> tradingUNITs=new ArrayList<TradingUNIT>();
+
+    public long getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(long idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public String getNameCategory() {
+        return nameCategory;
+    }
+
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
+
+    public List<TradingUNIT> getTradingUNITs() {
+        return tradingUNITs;
+    }
+
+
 }

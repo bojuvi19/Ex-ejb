@@ -26,9 +26,58 @@ public class Profile {
     private List<ShoppingList> shoppingLists=new ArrayList<ShoppingList>();
 
     @OneToMany(mappedBy="user")
-    private List<MonthlySpending> monthlySpendings=new ArrayList<MonthlySpending>();
+    private List<HistoryOfSpending> historyOfSpendings =new ArrayList<HistoryOfSpending>();
 
     @OneToMany(mappedBy="user")
     private List<RegularBuy> regularBuys=new ArrayList<RegularBuy>();
+
+    public long getIdProfile() {
+        return idProfile;
+    }
+
+    public void setIdProfile(long idProfile) {
+        this.idProfile = idProfile;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public List<ShoppingList> getShoppingLists() {
+        return shoppingLists;
+    }
+
+
+
+    public List<HistoryOfSpending> getHistoryOfSpendings() {
+        return historyOfSpendings;
+    }
+
+
+
+    public List<RegularBuy> getRegularBuys() {
+        return regularBuys;
+    }
+
 
 }
