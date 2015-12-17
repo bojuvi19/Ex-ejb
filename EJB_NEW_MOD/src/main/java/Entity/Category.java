@@ -11,15 +11,12 @@ import java.util.List;
 @Table(name = "category")
 public class Category {
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idCategory;
 
     @Column(name = "name_category", length = 32)
     private String nameCategory;
-
-    @OneToMany(mappedBy="category")
-    private List<TradingUNIT> tradingUNITs=new ArrayList<TradingUNIT>();
 
     public long getIdCategory() {
         return idCategory;
@@ -37,9 +34,6 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
-    public List<TradingUNIT> getTradingUNITs() {
-        return tradingUNITs;
-    }
 
 
 }

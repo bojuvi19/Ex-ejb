@@ -25,16 +25,12 @@ public class LineOfShoppingList {
     private EnumMarkOfList mark;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="shoping_lits")
-    private ShoppingList shoplist;
+    @JoinColumn(name="product_id")
+    private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="trading_unit_id")
-    private TradingUNIT tradingUNIT;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="units_id")
-    private Units units;
+    @JoinColumn(name="unit_id")
+    private Units unit;
 
     public long getIdLine() {
         return idLine;
@@ -68,27 +64,12 @@ public class LineOfShoppingList {
         this.mark = mark;
     }
 
-    public ShoppingList getShoplist() {
-        return shoplist;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setShoplist(ShoppingList shoplist) {
-        this.shoplist = shoplist;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public TradingUNIT getTradingUNIT() {
-        return tradingUNIT;
-    }
-
-    public void setTradingUNIT(TradingUNIT tradingUNIT) {
-        this.tradingUNIT = tradingUNIT;
-    }
-
-    public Units getUnits() {
-        return units;
-    }
-
-    public void setUnits(Units units) {
-        this.units = units;
-    }
 }

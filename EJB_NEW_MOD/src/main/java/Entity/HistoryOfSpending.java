@@ -8,22 +8,23 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "month_spending")
+@Table(name = "histort_of_spending")
 public class HistoryOfSpending {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idHistory;
+
     @Column(name = "date")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateOfSpending;
 
     @Column(name = "summ_of_spending ")
     private long summOfSpending;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="User_id")
-    private Profile user;
-
-    @OneToMany(mappedBy="spending")
-    private List<ShoppingList> shoppingLists=new ArrayList<ShoppingList>();
+    @OneToMany
+    private List<Profile> user =new ArrayList<Profile>();
 
     public Date getDateOfSpending() {
         return dateOfSpending;
@@ -41,16 +42,11 @@ public class HistoryOfSpending {
         this.summOfSpending = summOfSpending;
     }
 
-    public Profile getUser() {
+    public List<Profile> getUser() {
         return user;
     }
 
-    public void setUser(Profile user) {
+    public void setUser(List<Profile> user) {
         this.user = user;
     }
-
-    public List<ShoppingList> getShoppingLists() {
-        return shoppingLists;
-    }
-
 }

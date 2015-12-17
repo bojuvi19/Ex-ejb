@@ -3,7 +3,9 @@ package Entity; /**
  */
 
 import javax.persistence.*;
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,7 +13,7 @@ import java.util.List;
 public class ShoppingList {
 
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idList;
 
@@ -19,18 +21,17 @@ public class ShoppingList {
     @Column(name = "summ_of_list")
     private long summOfList;
 
-    @OneToMany(mappedBy = "line_of_shoppinglist",fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
-    private LineOfShoppingList idLine;
+    @Column(name = "date_of_list")
+    @Temporal(TemporalType.DATE)
+    private Date dateOfList;
+    /*@OneToMany(mappedBy = "line_of_shoppinglist",fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+    private LineOfShoppingList idLine;*/
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="User_id")
     private Profile user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="User_spending")
-    private HistoryOfSpending spending;
-
-    @OneToMany(mappedBy="shoplist")
+    @OneToMany
     private List<LineOfShoppingList> lineOfShoppingLists=new ArrayList<LineOfShoppingList>();
 
     public long getIdList() {
@@ -49,13 +50,7 @@ public class ShoppingList {
         this.summOfList = summOfList;
     }
 
-    public LineOfShoppingList getIdLine() {
-        return idLine;
-    }
 
-    public void setIdLine(LineOfShoppingList idLine) {
-        this.idLine = idLine;
-    }
 
     public Profile getUser() {
         return user;
@@ -63,14 +58,6 @@ public class ShoppingList {
 
     public void setUser(Profile user) {
         this.user = user;
-    }
-
-    public HistoryOfSpending getSpending() {
-        return spending;
-    }
-
-    public void setSpending(HistoryOfSpending spending) {
-        this.spending = spending;
     }
 
     public List<LineOfShoppingList> getLineOfShoppingLists() {

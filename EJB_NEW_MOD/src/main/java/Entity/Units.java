@@ -9,11 +9,11 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "units")
+@Table(name = "unit")
 public class Units {
 
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idUnits;
 
@@ -23,8 +23,6 @@ public class Units {
     @Column(name = "abbreviation", length = 32)
     private String abbreviation;
 
-    @OneToMany(mappedBy="id_line")
-    private List<LineOfShoppingList> lines=new ArrayList<LineOfShoppingList>();
 
 
     public long getIdUnits() {
@@ -51,8 +49,5 @@ public class Units {
         this.abbreviation = abbreviation;
     }
 
-    public List<LineOfShoppingList> getLines() {
-        return lines;
-    }
 
 }

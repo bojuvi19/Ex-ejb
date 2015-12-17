@@ -11,24 +11,24 @@ import java.util.List;
 public class RegularBuy {
 
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idBuy;
-
-    @Column(name = "id_product")
-    private List<TradingUNIT> products=new ArrayList<TradingUNIT>();
 
     @Column(name = "time_period")
     @Temporal(TemporalType.DATE)
     private Date timePeriod;
 
     @Column(name = "time_deposits")
-    @Temporal(TemporalType.DATE)
-    private Date time_deposits;
+    private int time_deposits;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="User_id")
     private Profile user;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="Product_id")
+    private List<Product> products=new ArrayList<Product>();
 
     public long getIdBuy() {
         return idBuy;
@@ -38,7 +38,7 @@ public class RegularBuy {
         this.idBuy = idBuy;
     }
 
-    public List<TradingUNIT> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
@@ -52,11 +52,11 @@ public class RegularBuy {
         this.timePeriod = timePeriod;
     }
 
-    public Date getTime_deposits() {
+    public int getTime_deposits() {
         return time_deposits;
     }
 
-    public void setTime_deposits(Date time_deposits) {
+    public void setTime_deposits(int time_deposits) {
         this.time_deposits = time_deposits;
     }
 
