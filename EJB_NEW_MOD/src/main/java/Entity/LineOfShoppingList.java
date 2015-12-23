@@ -72,4 +72,11 @@ public class LineOfShoppingList {
         this.product = product;
     }
 
+    public Units getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Units unit) {
+        this.unit = unit;
+    }
 }

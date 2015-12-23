@@ -11,6 +11,6 @@
     <title>#[[$Title$]]#</title>
 </head>
 <body>
-<%=request.getAttribute("123")%>
+<h4>Пользователь <% out.println(request.getAttribute("123"));%>успешно зарегестрирован!</h4>
 </body>
 </html>

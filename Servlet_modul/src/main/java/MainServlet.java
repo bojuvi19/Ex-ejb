@@ -2,6 +2,7 @@
  * Created by Юля on 09.12.2015.
  */
 import Entity.Category;
+import Entity.Profile;
 import crud.CategoryService;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,15 +25,19 @@ public class MainServlet extends HttpServlet {
     private Ejb_modBean Bean;
 
 
-    @Override
+   @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        Bean.DB();
-        request.setAttribute("123", "!");
-
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/Static_time.jsp");
+        //Bean.DB();
+        //request.setAttribute("123", "!");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/input_profile.jsp");;
         dispatcher.forward(request, response);
     }
-    }
+
+
+
+
+
+}
 

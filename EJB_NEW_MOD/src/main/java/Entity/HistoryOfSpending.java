@@ -42,11 +42,4 @@ public class HistoryOfSpending {
         this.summOfSpending = summOfSpending;
     }
 
-    public List<Profile> getUser() {
-        return user;
-    }
-
-    public void setUser(List<Profile> user) {
-        this.user = user;
-    }
 }
