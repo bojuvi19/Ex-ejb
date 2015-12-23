@@ -1,18 +1,14 @@
-import Entity.Category;
 import Entity.Profile;
-import crud.CategoryService;
 import crud.ProfileService;
+import crud.UserRow;
 
 import javax.ejb.Stateless;
 
 /**
  * Created by Юля on 09.12.2015.
  */
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +44,7 @@ public class Ejb_modBean {
         return user;
     }*/
 
-    public ArrayList FindUser()
+    public List<UserRow> FindUser()
     {
         return service.GetAll(em);
     }

@@ -1,3 +1,6 @@
+<%@ page import="java.lang.ref.ReferenceQueue" %>
+<%@ page import="java.util.List" %>
+<%@ page import="crud.UserRow" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -13,12 +16,17 @@
 </head>
 <body>
 <h3>Все пользователи</h3>
-<c:forEach var="usr" items="${usrName}">
-    <tr>
-        <td width="160px"><c:out value="${usr}"/></td>
-
-    </tr>
-    <br>
-</c:forEach>
+<%
+    List<UserRow> list = (List<UserRow>) request.getAttribute("usrName");
+%>
+<table>
+    <%
+        for (UserRow userRow : list) {
+    %>
+    <tr><td><%=userRow.name%></td><td><%=userRow.email%></td></tr>
+    <%
+        }
+    %>
+</table>
 </body>
 </html>

@@ -1,5 +1,6 @@
 import Entity.Profile;
 import crud.ProfileService;
+import crud.UserRow;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -27,7 +28,7 @@ public class FindUser extends Dispatcher  {
             throws ServletException, IOException {
         if (request.getParameter("print")!=null){
             response.setContentType("text/html");
-            ArrayList U = Bean.FindUser();
+            List<UserRow> U = Bean.FindUser();
             //String f = (String) U.get(1);
             request.setAttribute("usrName",U );
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login_profile.jsp");
